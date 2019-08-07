@@ -29,11 +29,12 @@ target 'ARPrototype' do
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
   # Required by Google Map, ignore if you use Apple Map
-  pod 'GoogleMaps'
+  pod 'GoogleMaps' # <~~ remove this line if you do not want to support GoogleMaps on iOS
+  pod 'react-native-maps', path: '../node_modules/react-native-maps'
+  pod 'react-native-google-maps', path: '../node_modules/react-native-maps' # <~~ if you need GoogleMaps support on iOS
   pod 'Google-Maps-iOS-Utils'
   pod 'GoogleUtilities'
   pod 'GoogleAppMeasurement'
-  
   pod 'ViroReact', :path => '../node_modules/react-viro/ios/'
   pod 'ViroKit_static_lib', :path => '../node_modules/react-viro/ios/dist/ViroRenderer/static_lib'
   pod 'react-native-geolocation', :path => '../node_modules/@react-native-community/geolocation'

@@ -132,7 +132,7 @@ class GoogleMapsScreen extends React.Component {
     return (
       <View style={styles.mainView}>
         <MapView
-        provider={ PROVIDER_DEFAULT }
+        provider={ PROVIDER_GOOGLE }
         style={ styles.container }
         region={{ latitude: this.state.currentPosition.latitude,
                   longitude: this.state.currentPosition.longitude,
