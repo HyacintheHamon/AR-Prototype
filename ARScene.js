@@ -27,7 +27,7 @@ export default class ARScene extends Component {
 
   render() {
     return (
-      <ViroARScene onTrackingInitialized={this._onInitialized} >
+      <ViroARScene onTrackingUpdated={this._onInitialized} >
         <ViroText text={this.state.text} scale={[.5, .5, .5]} position={[0, 0, -1]} style={styles.helloWorldTextStyle} />
       </ViroARScene>
     );

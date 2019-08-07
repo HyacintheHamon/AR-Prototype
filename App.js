@@ -32,40 +32,10 @@ const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
 
 // Dummy data
-const exampleMarkers = [{
-    latlng: { latitude: 59.9111556, longitude: 10.737842499999942 },
-    adress: 'Nedre Vollgate 5',
-    price: '10.000.000 kr',
-  },
-  {
-    latlng: { latitude: 59.91101631213413, longitude: 10.737657845020294 },
-    adress: 'Nedre Vollgate 3',
-    price: '1 kr',
-  },
-  {
-    latlng: { latitude: 59.91089528797505, longitude: 10.737555921077728 },
-    adress: 'Nedre Vollgate 1',
-    price: '2 kr',
-  },
-  {
-    latlng: { latitude: 59.910752747844114, longitude: 10.737861692905426 },
-    adress: 'Rådhusgata 23',
-    price: '2 kr',
-  },
-  {
-    latlng: { latitude: 59.911048585168686, longitude: 10.73813796043396 },
-    adress: 'Nedre Vollgate 4',
-    price: '3 kr',
-  },
-  {
-    latlng: { latitude: 59.91126642733144, longitude: 10.738376677036285 },
-    adress: 'Nedre Vollgate 8',
-    price: '4 kr',
-  },
-  {
-    latlng: { latitude: 59.91147082114731, longitude: 10.738140642642975 },
-    adress: 'Nedre Vollgate 11',
-    price: '5 kr',
+const exampleMarker = [{
+    latlng: { latitude: 48.8983508, longitude: 2.3778904},
+    title: 'My Tesla car',
+    description: '427m',
   },
 ];
 
@@ -117,7 +87,7 @@ class ARScreen extends React.Component {
 class GoogleMapsScreen extends React.Component {
 
   static navigationOptions = {
-    tabBarLabel: 'Google',
+    tabBarLabel: 'Map',
     tabBarIcon: ({ tintColor }) => (
       <Image source={require('./icons/placeholder.png')
       }
@@ -129,10 +99,10 @@ class GoogleMapsScreen extends React.Component {
   constructor(){
     super();
     this.state = {
-      markers: exampleMarkers,
+      markers: exampleMarker,
       region: {
-        latitude: 59.9111556,
-        longitude: 10.737842499999942,
+        latitude: 48.8983508,
+        longitude: 2.3778904,
         latitudeDelta: LATITUDE_DELTA,
         longitudeDelta: LONGITUDE_DELTA,
       },
@@ -171,7 +141,7 @@ class GoogleMapsScreen extends React.Component {
                   }}
         mapType="standard"
         showsUserLocation={true}
-        userLocationAnnotationTitle="Min posisjon"
+        userLocationAnnotationTitle="My position"
         followsUserLocation={true}
         showsMyLocationButton={true}
         showsPointsOfInterest={true}
@@ -185,8 +155,8 @@ class GoogleMapsScreen extends React.Component {
         {this.state.markers.map(marker => (
         <MapView.Marker
           coordinate={marker.latlng}
-          title={marker.adress}
-          description={marker.price}
+          title={marker.title}
+          description={marker.description}
           key={id++}
         />
         ))}
