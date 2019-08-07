@@ -20,7 +20,7 @@ import {
 import { createBottomTabNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
 
 import MapView, { PROVIDER_GOOGLE, PROVIDER_DEFAULT, prototype } from 'react-native-maps';
-
+import mapStyle from './json/mapStyle.json'
 import Geolocation from '@react-native-community/geolocation';
 
 // Calculate map zoom
@@ -133,7 +133,8 @@ class GoogleMapsScreen extends React.Component {
       <View style={styles.mainView}>
         <MapView
         provider={ PROVIDER_GOOGLE }
-        style={ styles.container }
+				style={ styles.container }
+				customMapStyle= {mapStyle}
         region={{ latitude: this.state.currentPosition.latitude,
                   longitude: this.state.currentPosition.longitude,
                   latitudeDelta: LATITUDE_DELTA,
